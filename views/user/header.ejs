@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meesho Navbar</title>
+
+  <link rel="stylesheet" href="/user/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+ 
+  <!-- ================= TOP NAVBAR ================= -->
+   <section class="sticky top-0 z-1000 h-35 w-full" alt="header">
+  <header class="navbar">
+    <div class="logo">
+      <h1>meesho</h1>
+    </div>
+
+    <div class="search-box">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" placeholder="Try Saree, Kurti or Search by Product Code" />
+    </div>
+
+    <div class="menu-toggle" id="menu-toggle">
+      <i class="fa-solid fa-bars"></i>
+    </div>
+
+    <div class="nav-right" id="nav-right">
+      <a href="/login"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
+      <a href="/logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+
+      <div class="profile-dropdown">
+        <div class="profile-box">
+          <i class="fa-regular fa-user"></i>
+          <span>Profile</span>
+          <i class="fa-solid fa-angle-down"></i>
+        </div>
+
+        <div class="profile-menu">
+          
+            <% if (user && user.username) { %>
+              <a href="/dashboard"><%= user.username %></a>
+              <% } else { %>
+                <a href="/login">Login</a>
+                <% } %>
+          
+          <a href="/my-orders">My Orders</a>
+          <a href="/delete-account">Delete Account</a>
+        </div>
+      </div>
+      <script>
+        
+      </script>
+      <a href="/cart" class="cart-box">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span>Cart</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- ================= BOTTOM NAVBAR ================= -->
+  <nav class="bottom-navbar">
+    <div class="nav-item"><a href="#">Fashion</a></div>
+    <div class="nav-item"><a href="#">Mobile</a></div>
+    <div class="nav-item"><a href="#">Electronics</a></div>
+    <div class="nav-item"><a href="#">Home Appliances</a></div>
+    <div class="nav-item"><a href="#">Toys & Gift</a></div>
+    <div class="nav-item"><a href="#">Book</a></div>
+    <div class="nav-item"><a href="#">Furniture</a></div>
+    <div class="nav-item"><a href="#">Sport</a></div>
+    <div class="nav-item"><a href="#">Grocery</a></div>
+  </nav>
+  </section>
+
+  
+  

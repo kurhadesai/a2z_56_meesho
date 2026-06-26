@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Task Management Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="32" height="32" rx="8" fill="url(#gradient)"/>
+                        <path d="M8 12h16M8 18h16M8 24h10" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        <defs>
+                            <linearGradient id="gradient" x1="0" y1="0" x2="32" y2="32">
+                                <stop offset="0%" stop-color="#7C3AED"/>
+                                <stop offset="100%" stop-color="#3B82F6"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <span>TaskHub</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <ul class="menu-list">
+                    <li class="menu-item active" data-page="dashboard">
+                        <a href="#" class="menu-link">
+                            <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                            </svg>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="menu-item" data-page="projects">
+                        <a href="#" class="menu-link">
+                            <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                <rect x="9" y="9" width="6" height="6"></rect>
+                            </svg>
+                            <span>Projects</span>
+                        </a>
+                    </li>
+                    <li class="menu-item" data-page="tasks">
+                        <a href="#" class="menu-link">
+                            <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 11l3 3L22 4"></path>
+                                <path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <span>Tasks</span>
+                        </a>
+                    </li>
+                    <li class="menu-item" data-page="messages">
+                        <a href="#" class="menu-link">
+                            <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                            </svg>
+                            <span>Messages</span>
+                        </a>
+                    </li>
+                    <li class="menu-item" data-page="team">
+                        <a href="#" class="menu-link">
+                            <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                            <span>Team</span>
+                        </a>
+                    </li>
+                    <li class="menu-item" data-page="analytics">
+                        <a href="#" class="menu-link">
+                            <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="2" x2="12" y2="22"></line>
+                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                            </svg>
+                            <span>Analytics</span>
+                        </a>
+                    </li>
+                    <li class="menu-item" data-page="reports">
+                        <a href="#" class="menu-link">
+                            <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="12" y1="13" x2="12" y2="17"></line>
+                                <line x1="9" y1="15" x2="15" y2="15"></line>
+                            </svg>
+                            <span>Reports</span>
+                        </a>
+                    </li>
+                    <li class="menu-item" data-page="calendar">
+                        <a href="#" class="menu-link">
+                            <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg>
+                            <span>Calendar</span>
+                        </a>
+                    </li>
+                    <li class="menu-item" data-page="files">
+                        <a href="#" class="menu-link">
+                            <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                                <polyline points="13 2 13 9 20 9"></polyline>
+                            </svg>
+                            <span>Files</span>
+                        </a>
+                    </li>
+                    <li class="menu-item" data-page="settings">
+                        <a href="#" class="menu-link">
+                            <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="3"></circle>
+                                <path d="M12 1v6m0 6v6M4.22 4.22l4.24 4.24m5.08 5.08l4.24 4.24M1 12h6m6 0h6m-16.78 7.78l4.24-4.24m5.08-5.08l4.24-4.24"></path>
+                            </svg>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <img src="https://ui-avatars.com/api/?name=John+Doe&background=7C3AED&color=fff" alt="User" class="user-avatar">
+                    <div class="user-info">
+                        <p class="user-name">John Doe</p>
+                        <p class="user-role">Admin</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <div class="header-left">
+                    <button class="menu-toggle" id="menuToggle">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <line x1="3" y1="12" x2="21" y2="12"></line>
+                            <line x1="3" y1="18" x2="21" y2="18"></line>
+                        </svg>
+                    </button>
+                    <div class="search-bar">
+                        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
+                        </svg>
+                        <input type="text" placeholder="Search tasks, projects...">
+                    </div>
+                </div>
+
+                <div class="header-right">
+                    <button class="header-btn notification-btn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                        </svg>
+                        <span class="notification-badge">3</span>
+                    </button>
+                    <button class="header-btn theme-toggle" id="themeToggle">
+                        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: none;">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </button>
+                    <div class="header-profile">
+                        <img src="https://ui-avatars.com/api/?name=John+Doe&background=7C3AED&color=fff" alt="User" class="profile-avatar">
+                    </div>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <div class="content-wrapper">
+                <div class="content-area">
+                    <!-- Dashboard Page -->
+                    <div class="page-content active" id="dashboard">
+                        <div class="page-header">
+                            <h1>Dashboard</h1>
+                            <p class="page-subtitle">Welcome back! Here's your task overview.</p>
+                        </div>
+
+                        <!-- Overview Cards -->
+                        <div class="cards-grid">
+                            <div class="stat-card">
+                                <div class="card-header">
+                                    <h3>Total Tasks</h3>
+                                    <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M9 11l3 3L22 4"></path>
+                                        <path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                </div>
+                                <p class="card-value">156</p>
+                                <p class="card-change positive">+12 this week</p>
+                            </div>
+
+                            <div class="stat-card">
+                                <div class="card-header">
+                                    <h3>Completed</h3>
+                                    <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                </div>
+                                <p class="card-value">98</p>
+                                <p class="card-change positive">+8 this week</p>
+                            </div>
+
+                            <div class="stat-card">
+                                <div class="card-header">
+                                    <h3>Pending</h3>
+                                    <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="1"></circle>
+                                        <circle cx="19" cy="12" r="1"></circle>
+                                        <circle cx="5" cy="12" r="1"></circle>
+                                    </svg>
+                                </div>
+                                <p class="card-value">42</p>
+                                <p class="card-change negative">-2 this week</p>
+                            </div>
+
+                            <div class="stat-card">
+                                <div class="card-header">
+                                    <h3>Overdue</h3>
+                                    <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <polyline points="12 6 12 12 16 14"></polyline>
+                                    </svg>
+                                </div>
+                                <p class="card-value">16</p>
+                                <p class="card-change negative">+4 this week</p>
+                            </div>
+                        </div>
+
+                        <!-- Recent Tasks -->
+                        <div class="section">
+                            <div class="section-header">
+                                <h2>Recent Tasks</h2>
+                                <a href="#" class="link-btn">View All</a>
+                            </div>
+                            <div class="task-list">
+                                <div class="task-item">
+                                    <div class="task-checkbox">
+                                        <input type="checkbox">
+                                    </div>
+                                    <div class="task-info">
+                                        <h4>Design new landing page</h4>
+                                        <p>UI/UX Design • Due: Mar 15, 2024</p>
+                                    </div>
+                                    <div class="task-meta">
+                                        <span class="priority-tag high">High</span>
+                                        <img src="https://ui-avatars.com/api/?name=Sarah&background=3B82F6&color=fff&size=32" alt="Assignee" class="task-avatar">
+                                    </div>
+                                </div>
+
+                                <div class="task-item">
+                                    <div class="task-checkbox">
+                                        <input type="checkbox" checked>
+                                    </div>
+                                    <div class="task-info">
+                                        <h4>API Integration</h4>
+                                        <p>Backend Development • Due: Mar 10, 2024</p>
+                                    </div>
+                                    <div class="task-meta">
+                                        <span class="priority-tag medium">Medium</span>
+                                        <img src="https://ui-avatars.com/api/?name=Mike&background=10B981&color=fff&size=32" alt="Assignee" class="task-avatar">
+                                    </div>
+                                </div>
+
+                                <div class="task-item">
+                                    <div class="task-checkbox">
+                                        <input type="checkbox">
+                                    </div>
+                                    <div class="task-info">
+                                        <h4>Database Optimization</h4>
+                                        <p>Backend Development • Due: Mar 20, 2024</p>
+                                    </div>
+                                    <div class="task-meta">
+                                        <span class="priority-tag low">Low</span>
+                                        <img src="https://ui-avatars.com/api/?name=Emma&background=F59E0B&color=fff&size=32" alt="Assignee" class="task-avatar">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Projects Page -->
+                    <div class="page-content" id="projects">
+                        <div class="page-header">
+                            <h1>Projects</h1>
+                            <p class="page-subtitle">Manage all your projects in one place.</p>
+                        </div>
+                        <div class="section">
+                            <div class="projects-grid">
+                                <div class="project-card">
+                                    <div class="project-color" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
+                                    <h3>Website Redesign</h3>
+                                    <p>Modernizing the company website</p>
+                                    <div class="project-progress">
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" style="width: 65%;"></div>
+                                        </div>
+                                        <span class="progress-text">65%</span>
+                                    </div>
+                                </div>
+
+                                <div class="project-card">
+                                    <div class="project-color" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></div>
+                                    <h3>Mobile App</h3>
+                                    <p>iOS and Android application</p>
+                                    <div class="project-progress">
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" style="width: 45%;"></div>
+                                        </div>
+                                        <span class="progress-text">45%</span>
+                                    </div>
+                                </div>
+
+                                <div class="project-card">
+                                    <div class="project-color" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"></div>
+                                    <h3>API Development</h3>
+                                    <p>RESTful API for third-party integrations</p>
+                                    <div class="project-progress">
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" style="width: 80%;"></div>
+                                        </div>
+                                        <span class="progress-text">80%</span>
+                                    </div>
+                                </div>
+
+                                <div class="project-card">
+                                    <div class="project-color" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);"></div>
+                                    <h3>Data Analytics</h3>
+                                    <p>Real-time analytics dashboard</p>
+                                    <div class="project-progress">
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" style="width: 30%;"></div>
+                                        </div>
+                                        <span class="progress-text">30%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tasks Page -->
+                    <div class="page-content" id="tasks">
+                        <div class="page-header">
+                            <h1>Tasks</h1>
+                            <p class="page-subtitle">All your tasks in one organized view.</p>
+                        </div>
+                        <div class="section">
+                            <div class="task-list">
+                                <div class="task-item">
+                                    <div class="task-checkbox">
+                                        <input type="checkbox">
+                                    </div>
+                                    <div class="task-info">
+                                        <h4>Complete project documentation</h4>
+                                        <p>Documentation • Due: Mar 25, 2024</p>
+                                    </div>
+                                    <div class="task-meta">
+                                        <span class="priority-tag high">High</span>
+                                        <img src="https://ui-avatars.com/api/?name=Alex&background=EF4444&color=fff&size=32" alt="Assignee" class="task-avatar">
+                                    </div>
+                                </div>
+
+                                <div class="task-item">
+                                    <div class="task-checkbox">
+                                        <input type="checkbox">
+                                    </div>
+                                    <div class="task-info">
+                                        <h4>Code review for pull requests</h4>
+                                        <p>Code Review • Due: Mar 12, 2024</p>
+                                    </div>
+                                    <div class="task-meta">
+                                        <span class="priority-tag medium">Medium</span>
+                                        <img src="https://ui-avatars.com/api/?name=Lisa&background=3B82F6&color=fff&size=32" alt="Assignee" class="task-avatar">
+                                    </div>
+                                </div>
+
+                                <div class="task-item">
+                                    <div class="task-checkbox">
+                                        <input type="checkbox">
+                                    </div>
+                                    <div class="task-info">
+                                        <h4>Update security protocols</h4>
+                                        <p>Security • Due: Mar 18, 2024</p>
+                                    </div>
+                                    <div class="task-meta">
+                                        <span class="priority-tag high">High</span>
+                                        <img src="https://ui-avatars.com/api/?name=Tom&background=EF4444&color=fff&size=32" alt="Assignee" class="task-avatar">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Messages Page -->
+                    <div class="page-content" id="messages">
+                        <div class="page-header">
+                            <h1>Messages</h1>
+                            <p class="page-subtitle">Stay connected with your team.</p>
+                        </div>
+                        <div class="section">
+                            <div class="message-list">
+                                <div class="message-item">
+                                    <img src="https://ui-avatars.com/api/?name=Sarah&background=3B82F6&color=fff&size=40" alt="User" class="message-avatar">
+                                    <div class="message-content">
+                                        <div class="message-header">
+                                            <h4>Sarah Johnson</h4>
+                                            <span class="message-time">2 hours ago</span>
+                                        </div>
+                                        <p>Hey! Did you get a chance to review the design mockups?</p>
+                                    </div>
+                                </div>
+
+                                <div class="message-item">
+                                    <img src="https://ui-avatars.com/api/?name=Mike&background=10B981&color=fff&size=40" alt="User" class="message-avatar">
+                                    <div class="message-content">
+                                        <div class="message-header">
+                                            <h4>Mike Chen</h4>
+                                            <span class="message-time">5 hours ago</span>
+                                        </div>
+                                        <p>The API integration is ready for testing. Let me know when you're available.</p>
+                                    </div>
+                                </div>
+
+                                <div class="message-item">
+                                    <img src="https://ui-avatars.com/api/?name=Emma&background=F59E0B&color=fff&size=40" alt="User" class="message-avatar">
+                                    <div class="message-content">
+                                        <div class="message-header">
+                                            <h4>Emma Davis</h4>
+                                            <span class="message-time">1 day ago</span>
+                                        </div>
+                                        <p>Great work on the database optimization! Performance improved by 40%.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Team Page -->
+                    <div class="page-content" id="team">
+                        <div class="page-header">
+                            <h1>Team</h1>
+                            <p class="page-subtitle">Manage your team members.</p>
+                        </div>
+                        <div class="section">
+                            <div class="team-grid">
+                                <div class="team-card">
+                                    <img src="https://ui-avatars.com/api/?name=Sarah&background=3B82F6&color=fff&size=80" alt="Team Member" class="team-avatar">
+                                    <h3>Sarah Johnson</h3>
+                                    <p class="team-role">UI/UX Designer</p>
+                                    <p class="team-email">sarah@company.com</p>
+                                </div>
+
+                                <div class="team-card">
+                                    <img src="https://ui-avatars.com/api/?name=Mike&background=10B981&color=fff&size=80" alt="Team Member" class="team-avatar">
+                                    <h3>Mike Chen</h3>
+                                    <p class="team-role">Backend Developer</p>
+                                    <p class="team-email">mike@company.com</p>
+                                </div>
+
+                                <div class="team-card">
+                                    <img src="https://ui-avatars.com/api/?name=Emma&background=F59E0B&color=fff&size=80" alt="Team Member" class="team-avatar">
+                                    <h3>Emma Davis</h3>
+                                    <p class="team-role">DevOps Engineer</p>
+                                    <p class="team-email">emma@company.com</p>
+                                </div>
+
+                                <div class="team-card">
+                                    <img src="https://ui-avatars.com/api/?name=Alex&background=EF4444&color=fff&size=80" alt="Team Member" class="team-avatar">
+                                    <h3>Alex Martinez</h3>
+                                    <p class="team-role">Project Manager</p>
+                                    <p class="team-email">alex@company.com</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Analytics Page -->
+                    <div class="page-content" id="analytics">
+                        <div class="page-header">
+                            <h1>Analytics</h1>
+                            <p class="page-subtitle">Track your performance metrics.</p>
+                        </div>
+                        <div class="section">
+                            <div class="analytics-grid">
+                                <div class="chart-card">
+                                    <h3>Task Completion Rate</h3>
+                                    <canvas id="completionChart" width="400" height="200"></canvas>
+                                </div>
+                                <div class="chart-card">
+                                    <h3>Tasks by Priority</h3>
+                                    <canvas id="priorityChart" width="400" height="200"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Reports Page -->
+                    <div class="page-content" id="reports">
+                        <div class="page-header">
+                            <h1>Reports</h1>
+                            <p class="page-subtitle">Generate and view detailed reports.</p>
+                        </div>
+                        <div class="section">
+                            <div class="report-list">
+                                <div class="report-item">
+                                    <div class="report-icon">📊</div>
+                                    <div class="report-info">
+                                        <h4>Monthly Performance Report</h4>
+                                        <p>Generated on Mar 1, 2024</p>
+                                    </div>
+                                    <button class="report-btn">Download</button>
+                                </div>
+
+                                <div class="report-item">
+                                    <div class="report-icon">📈</div>
+                                    <div class="report-info">
+                                        <h4>Quarterly Summary</h4>
+                                        <p>Generated on Feb 28, 2024</p>
+                                    </div>
+                                    <button class="report-btn">Download</button>
+                                </div>
+
+                                <div class="report-item">
+                                    <div class="report-icon">👥</div>
+                                    <div class="report-info">
+                                        <h4>Team Productivity Report</h4>
+                                        <p>Generated on Feb 25, 2024</p>
+                                    </div>
+                                    <button class="report-btn">Download</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Calendar Page -->
+                    <div class="page-content" id="calendar">
+                        <div class="page-header">
+                            <h1>Calendar</h1>
+                            <p class="page-subtitle">View and manage your schedule.</p>
+                        </div>
+                        <div class="section">
+                            <div class="calendar-container">
+                                <div class="calendar-header">
+                                    <button class="calendar-nav">&lt;</button>
+                                    <h2 id="currentMonth">March 2024</h2>
+                                    <button class="calendar-nav">&gt;</button>
+                                </div>
+                                <div class="calendar-grid" id="calendarGrid"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Files Page -->
+                    <div class="page-content" id="files">
+                        <div class="page-header">
+                            <h1>Files</h1>
+                            <p class="page-subtitle">Manage project files and documents.</p>
+                        </div>
+                        <div class="section">
+                            <div class="file-list">
+                                <div class="file-item">
+                                    <div class="file-icon">📄</div>
+                                    <div class="file-info">
+                                        <h4>Project_Brief.pdf</h4>
+                                        <p>2.4 MB • Mar 10, 2024</p>
+                                    </div>
+                                    <button class="file-action">Download</button>
+                                </div>
+
+                                <div class="file-item">
+                                    <div class="file-icon">🖼️</div>
+                                    <div class="file-info">
+                                        <h4>Design_Mockups.figma</h4>
+                                        <p>5.1 MB • Mar 8, 2024</p>
+                                    </div>
+                                    <button class="file-action">Open</button>
+                                </div>
+
+                                <div class="file-item">
+                                    <div class="file-icon">📊</div>
+                                    <div class="file-info">
+                                        <h4>Budget_Spreadsheet.xlsx</h4>
+                                        <p>1.8 MB • Mar 5, 2024</p>
+                                    </div>
+                                    <button class="file-action">Download</button>
+                                </div>
+
+                                <div class="file-item">
+                                    <div class="file-icon">📝</div>
+                                    <div class="file-info">
+                                        <h4>Meeting_Notes.docx</h4>
+                                        <p>0.9 MB • Mar 3, 2024</p>
+                                    </div>
+                                    <button class="file-action">Download</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Settings Page -->
+                    <div class="page-content" id="settings">
+                        <div class="page-header">
+                            <h1>Settings</h1>
+                            <p class="page-subtitle">Manage your account and preferences.</p>
+                        </div>
+                        <div class="section">
+                            <div class="settings-group">
+                                <h3>Account Settings</h3>
+                                <div class="setting-item">
+                                    <label>Email Address</label>
+                                    <input type="email" value="john.doe@company.com" readonly>
+                                </div>
+                                <div class="setting-item">
+                                    <label>Full Name</label>
+                                    <input type="text" value="John Doe">
+                                </div>
+                                <div class="setting-item">
+                                    <label>Role</label>
+                                    <input type="text" value="Administrator" readonly>
+                                </div>
+                            </div>
+
+                            <div class="settings-group">
+                                <h3>Notifications</h3>
+                                <div class="setting-toggle">
+                                    <label>Email Notifications</label>
+                                    <input type="checkbox" checked>
+                                </div>
+                                <div class="setting-toggle">
+                                    <label>Task Reminders</label>
+                                    <input type="checkbox" checked>
+                                </div>
+                                <div class="setting-toggle">
+                                    <label>Team Updates</label>
+                                    <input type="checkbox">
+                                </div>
+                            </div>
+
+                            <div class="settings-group">
+                                <h3>Preferences</h3>
+                                <div class="setting-item">
+                                    <label>Language</label>
+                                    <select>
+                                        <option>English</option>
+                                        <option>Spanish</option>
+                                        <option>French</option>
+                                    </select>
+                                </div>
+                                <div class="setting-item">
+                                    <label>Timezone</label>
+                                    <select>
+                                        <option>UTC</option>
+                                        <option>EST</option>
+                                        <option>PST</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <button class="save-btn">Save Changes</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Sidebar / Activity Panel -->
+                <aside class="right-panel">
+                    <div class="panel-header">
+                        <h3>Activity</h3>
+                        <button class="close-panel">&times;</button>
+                    </div>
+
+                    <div class="activity-feed">
+                        <div class="activity-item">
+                            <div class="activity-avatar">
+                                <img src="https://ui-avatars.com/api/?name=Sarah&background=3B82F6&color=fff&size=32" alt="User">
+                            </div>
+                            <div class="activity-content">
+                                <p><strong>Sarah Johnson</strong> completed a task</p>
+                                <p class="activity-time">2 hours ago</p>
+                            </div>
+                        </div>
+
+                        <div class="activity-item">
+                            <div class="activity-avatar">
+                                <img src="https://ui-avatars.com/api/?name=Mike&background=10B981&color=fff&size=32" alt="User">
+                            </div>
+                            <div class="activity-content">
+                                <p><strong>Mike Chen</strong> created a new project</p>
+                                <p class="activity-time">4 hours ago</p>
+                            </div>
+                        </div>
+
+                        <div class="activity-item">
+                            <div class="activity-avatar">
+                                <img src="https://ui-avatars.com/api/?name=Emma&background=F59E0B&color=fff&size=32" alt="User">
+                            </div>
+                            <div class="activity-content">
+                                <p><strong>Emma Davis</strong> commented on a task</p>
+                                <p class="activity-time">6 hours ago</p>
+                            </div>
+                        </div>
+
+                        <div class="activity-item">
+                            <div class="activity-avatar">
+                                <img src="https://ui-avatars.com/api/?name=Alex&background=EF4444&color=fff&size=32" alt="User">
+                            </div>
+                            <div class="activity-content">
+                                <p><strong>Alex Martinez</strong> updated project status</p>
+                                <p class="activity-time">1 day ago</p>
+                            </div>
+                        </div>
+
+                        <div class="activity-item">
+                            <div class="activity-avatar">
+                                <img src="https://ui-avatars.com/api/?name=Sarah&background=3B82F6&color=fff&size=32" alt="User">
+                            </div>
+                            <div class="activity-content">
+                                <p><strong>Sarah Johnson</strong> assigned you a task</p>
+                                <p class="activity-time">2 days ago</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel-footer">
+                        <a href="#" class="view-all-link">View All Activity</a>
+                    </div>
+                </aside>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

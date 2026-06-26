@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px; 
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        h1 {
+            color: #333;
+        }
+        .logout-btn {
+            padding: 10px 20px;
+            background: #d32f2f;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .logout-btn:hover {
+            background: #b71c1c;
+        }
+        .welcome-section {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        .welcome-section p {
+            color: #0d47a1;
+            margin: 10px 0;
+        }
+        .user-info {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            padding: 10px;
+            background: white;
+            border-radius: 3px;
+        }
+        .info-label {
+            font-weight: bold;
+            color: #555;
+        }
+        .info-value {
+            color: #333;
+        }
+        .success-badge {
+            display: inline-block;
+            background: #4caf50;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-size: 12px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Dashboard</h1>
+            <a href="/logout" class="logout-btn">Logout</a>
+        </header>
+
+        <div class="welcome-section">
+            <h2>Welcome, <%= user.username %>!</h2>
+            <p>Your email has been successfully verified.</p>
+            <p><strong>Email:</strong> <%= user.email %> <span class="success-badge">✓ Verified</span></p>
+        </div>
+
+        <div class="user-info">
+            <h3>Account Information</h3>
+            <div class="info-row">
+                <span class="info-label">Username:</span>
+                <span class="info-value"><%= user.username %></span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Email:</span>
+                <span class="info-value"><%= user.email %></span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Account Status:</span>
+                <span class="info-value" style="color: #4caf50;">Active ✓</span>
+            </div>
+        </div>
+
+        <div style="text-align: center; color: #666; font-size: 14px; margin-top: 30px;">
+            <p>Email verification system is now complete and working!</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Verify Email</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: bold;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 18px;
+            letter-spacing: 5px;
+            text-align: center;
+        }
+        input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 5px rgba(102, 126, 234, 0.3);
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: transform 0.2s;
+        }
+        button:hover {
+            transform: translateY(-2px);
+        }
+        .error {
+            color: #d32f2f;
+            font-size: 14px;
+            margin-top: 5px;
+            text-align: center;
+        }
+        .success {
+            color: #388e3c;
+            font-size: 14px;
+            margin-top: 5px;
+            text-align: center;
+        }
+        .info {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 12px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            color: #0d47a1;
+            font-size: 14px;
+        }
+        .resend {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .resend a {
+            color: #667eea;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .resend a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Verify Email</h1>
+        <p class="subtitle">Enter the 6-digit OTP sent to your email</p>
+
+        <div class="info">
+            We've sent a verification code to your email address. It will expire in 10 minutes.
+        </div>
+
+        <form method="POST" action="/verify-otp">
+            <div class="form-group">
+                <label for="otp">OTP Code:</label>
+                <input type="text" id="otp" name="otp" maxlength="6" pattern="\d{6}" placeholder="000000" required autofocus>
+                <input type="hidden" name="email" value="<%= email %>">
+            </div>
+            <button type="submit">Verify Email</button>
+        </form>
+
+        <% if (locals.error) { %>
+            <div class="error"><%= error %></div>
+        <% } %>
+
+        <% if (locals.success) { %>
+            <div class="success"><%= success %></div>
+        <% } %>
+
+        <div class="resend">
+            Didn't receive the code? <a href="/resend-otp?email=<%= email %>">Resend OTP</a>
+        </div>
+    </div>
+</body>
+</html>
