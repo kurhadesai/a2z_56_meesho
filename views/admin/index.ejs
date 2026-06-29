@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meesho Sai Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+
+  <div class="flex">
+
+    <!-- Sidebar -->
+    <div class="w-64 h-screen bg-violet-600 text-white fixed">
+      <div class="p-6 text-3xl font-bold border-b">
+        Meesho Sai
+      </div>
+
+    <div class="mt-6 flex flex-col gap-2 px-4">
+
+    <a href="" class="px-6 py-3 hover:bg-pink-700 rounded-md transition duration-300">
+        🏠 Dashboard
+    </a>
+
+    <a href="/admin/products" class="px-6 py-3 hover:bg-pink-700 rounded-md transition duration-300">
+        📦 Products
+    </a>
+
+    <a href="/admin/orders" class="px-6 py-3 hover:bg-pink-700 rounded-md transition duration-300">
+        🛒 Orders
+    </a>
+
+    <a href="/admin/customers" class="px-6 py-3 hover:bg-pink-700 rounded-md transition duration-300">
+        👥 Customers
+    </a>
+
+    <a href="/admin/payments" class="px-6 py-3 hover:bg-pink-700 rounded-md transition duration-300">
+        💰 Payments
+    </a>
+
+    <a href="/admin/settings" class="px-6 py-3 hover:bg-pink-700 rounded-md transition duration-300">
+        ⚙️ Settings
+    </a>
+
+</div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="ml-64 w-full">
+
+      <!-- Navbar -->
+      <div class="bg-white shadow p-5 flex justify-between items-center">
+        <h1 class="text-3xl font-bold">Dashboard</h1>
+
+        <div class="flex items-center gap-4">
+          <input type="text"
+                 placeholder="Search..."
+                 class="border px-4 py-2 rounded-lg">
+
+          <img src="https://mir-s3-cdn-cf.behance.net/projects/404/9e884b168199731.Y3JvcCw4MDgsNjMyLDAsMA.jpg"
+               class="w-12 h-12 rounded-full">
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 p-6">
+
+        <div class="bg-white p-6 rounded-lg shadow">
+          <h3 class="text-gray-500">Total Products</h3>
+          <h2 class="text-4xl font-bold mt-2">1,250</h2>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow">
+          <h3 class="text-gray-500">Total Orders</h3>
+          <h2 class="text-4xl font-bold mt-2">850</h2>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow">
+          <h3 class="text-gray-500">Customers</h3>
+          <h2 class="text-4xl font-bold mt-2">3,500</h2>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow">
+          <h3 class="text-gray-500">Revenue</h3>
+          <h2 class="text-4xl font-bold mt-2">₹5,25,000</h2>
+        </div>
+
+      </div>
+
+      <!-- Recent Orders Table -->
+      <!-- <div class="p-6">
+        <div class="bg-white rounded-lg shadow p-5">
+
+          <h2 class="text-2xl font-bold mb-5">Recent Orders</h2>
+
+          <table class="w-full">
+            <thead>
+              <tr class="border-b">
+                <th class="text-left p-3">Order ID</th>
+                <th class="text-left p-3">Customer</th>
+                <th class="text-left p-3">Product</th>
+                <th class="text-left p-3">Amount</th>
+                <th class="text-left p-3">Status</th>
+              </tr>
+            </thead>
+
+            <tbody>
+
+              <tr class="border-b">
+                <td class="p-3">#1001</td>
+                <td class="p-3">Rahul</td>
+                <td class="p-3">Women Kurti</td>
+                <td class="p-3">₹599</td>
+                <td class="p-3 text-green-600">Delivered</td>
+              </tr>
+
+              <tr class="border-b">
+                <td class="p-3">#1002</td>
+                <td class="p-3">Priya</td>
+                <td class="p-3">Sports Shoes</td>
+                <td class="p-3">₹899</td>
+                <td class="p-3 text-yellow-500">Pending</td>
+              </tr>
+
+              <tr>
+                <td class="p-3">#1003</td>
+                <td class="p-3">Amit</td>
+                <td class="p-3">Smart Watch</td>
+                <td class="p-3">₹1499</td>
+                <td class="p-3 text-blue-600">Shipped</td>
+              </tr>
+
+            </tbody>
+          </table>
+
+        </div>
+      </div> -->
+
+    </div>
+
+  </div>
+
+</body>
+</html>

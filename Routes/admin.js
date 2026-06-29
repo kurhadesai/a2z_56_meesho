@@ -4,9 +4,9 @@ var db=require('../db.js');
 var path = require('path');
 var fs=require('fs');
 var { sendOTP } = require('../utils/sendOTP');
-router.get('/',(req,res)=>{
-    res.send('hi');
-});
+// router.get('/',(req,res)=>{
+//     res.send('hi');
+// });
 
 router.get('/test-mail', async (req, res) => {
 
@@ -28,5 +28,7 @@ router.get('/test-mail', async (req, res) => {
     }
 
 });
-
+router.get('/',(req,res)=>{
+    res.render('admin/index.ejs');
+})
 module.exports = router;
