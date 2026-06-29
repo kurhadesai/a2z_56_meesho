@@ -1,0 +1,92 @@
+<div class="flex flex-wrap gap-5 justify-center" id="productContainer"></div>
+
+<script>
+   const products = [
+  {
+    name: "Women Kurti",
+    price: "₹499",
+    offer: "20% Off",
+    img: "https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?w=500"
+  },
+  {
+    name: "Cotton Saree",
+    price: "₹699",
+    offer: "25% Off",
+    img: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=500"
+  },
+  {
+    name: "Men T-Shirt",
+    price: "₹399",
+    offer: "15% Off",
+    img: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500"
+  },
+  {
+    name: "Sports Shoes",
+    price: "₹999",
+    offer: "30% Off",
+    img: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500"
+  },
+  {
+    name: "Wireless Earbuds",
+    price: "₹1299",
+    offer: "40% Off",
+    img: "https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?w=500"
+  },
+  {
+    name: "Smart Watch",
+    price: "₹1499",
+    offer: "35% Off",
+    img: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500"
+  },
+  {
+    name: "Hand Bag",
+    price: "₹799",
+    offer: "18% Off",
+    img: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=500"
+  },
+  {
+    name: "Beauty Cream",
+    price: "₹299",
+    offer: "10% Off",
+    img: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=500"
+  },
+  {
+    name: "Lipstick",
+    price: "₹199",
+    offer: "12% Off",
+    img: "https://images.unsplash.com/photo-1631214540553-ff044a3cc72e?w=500"
+  },
+  {
+    name: "Perfume",
+    price: "₹899",
+    offer: "28% Off",
+    img: "https://images.unsplash.com/photo-1541643600914-78b084683601?w=500"
+  }
+];
+
+let cards = "";
+
+for (let i = 0; i < 40; i++) {
+  let p = products[i % products.length];
+
+  cards += `
+    <div class="w-full sm:w-[48%] md:w-[31%] lg:w-[23%] xl:w-[18%] bg-white rounded-lg border hover:shadow-xl hover:-translate-y-2 duration-300 overflow-hidden">
+
+      <img src="${p.img}" class="w-full h-72 object-cover">
+
+      <div class="p-4">
+        <h3 class="text-gray-600">${p.name}</h3>
+        <h2 class="text-2xl font-bold mt-2">${p.price}</h2>
+        <p class="text-green-600 font-semibold">${p.offer}</p>
+
+        <button class="w-full mt-4 bg-pink-600 text-white py-2 rounded hover:bg-pink-700">
+          Add To Cart
+        </button>
+      </div>
+
+    </div>
+  `;
+}
+
+document.getElementById("productContainer").innerHTML = cards;
+</script>
